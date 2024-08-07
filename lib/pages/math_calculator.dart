@@ -230,7 +230,10 @@ class _MathsCalculatorState extends State<MathsCalculator> {
                 callback: evaluate,
               ),
             ],
-          )
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
         ],
       ),
     );
