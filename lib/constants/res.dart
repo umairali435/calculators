@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mathtool/constants/colors.dart';
 
 const buttonsBackgroundColor = Color(0xFF090E1C);
 const backgroundColor = Color(0xFF141A2F);
@@ -14,14 +15,24 @@ AppBar appbar(
   return AppBar(
     title: Text(
       title,
-      style: const TextStyle(fontWeight: FontWeight.w400),
+      style: const TextStyle(
+        fontWeight: FontWeight.w400,
+        color: AppColors.whiteColor,
+      ),
+    ),
+    iconTheme: const IconThemeData(
+      color: AppColors.whiteColor,
     ),
     actions: [
       IconButton(
         onPressed: tap,
-        icon: Icon(icon),
+        icon: Icon(
+          icon,
+          color: AppColors.whiteColor,
+        ),
       ),
     ],
+    backgroundColor: AppColors.primaryColor,
   );
 }
 

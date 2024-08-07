@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:mathtool/constants/colors.dart';
 import 'package:mathtool/constants/res.dart';
 import 'package:mathtool/models/history_model.dart';
 
@@ -36,12 +37,15 @@ class History extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  tileColor: buttonsBackgroundColor,
+                  tileColor: AppColors.primaryColor,
                   title: Text(
                     result[i].title,
-                    style: Theme.of(context).textTheme.displaySmall!.copyWith(fontSize: 26.0),
+                    style: const TextStyle(color: AppColors.whiteColor),
                   ),
-                  subtitle: Text(result[i].subtitle),
+                  subtitle: Text(
+                    result[i].subtitle,
+                    style: const TextStyle(color: AppColors.whiteColor),
+                  ),
                 );
               },
             ),

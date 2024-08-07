@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:mathtool/models/history_model.dart';
 import 'package:mathtool/pages/multipe_calculator.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+  Hive.registerAdapter(HistoryItemAdapter());
+  await Hive.openBox<HistoryItem>('history');
   runApp(const CalcApp());
 }
 
@@ -17,7 +23,7 @@ class CalcAppState extends State<CalcApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Calculator',
+      title: 'MathTool',
       home: MultipleCalculators(),
     );
   }

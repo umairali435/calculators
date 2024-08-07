@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mathtool/constants/colors.dart';
 
 class CalcButton extends StatelessWidget {
   final String text;
@@ -19,25 +20,26 @@ class CalcButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(10),
-      child: SizedBox(
-        width: 65,
-        height: 65,
-        child: ElevatedButton(
-          // shape: RoundedRectangleBorder(
-          //   borderRadius: BorderRadius.circular(50.0),
-          // ),
-          onPressed: () {
-            callback(text);
-          },
-          // color: fillColor != null ? Color(fillColor) : null,
-          // textColor: Color(textColor),
-          child: Text(
-            text,
-            style: GoogleFonts.rubik(
-              textStyle: TextStyle(
-                fontSize: textSize,
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          callback(text);
+        },
+        child: Container(
+          padding: const EdgeInsets.all(20.0),
+          margin: const EdgeInsets.only(bottom: 5.0),
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColors.whiteColor,
+          ),
+          child: Center(
+            child: Text(
+              text,
+              style: GoogleFonts.rubik(
+                textStyle: const TextStyle(
+                  fontSize: 20.0,
+                  color: AppColors.primaryColor,
+                ),
               ),
             ),
           ),
