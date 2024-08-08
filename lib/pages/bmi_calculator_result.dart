@@ -12,17 +12,12 @@ class ResultActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (MaterialApp(
-        title: "BMI Calculator",
-        theme: ThemeData(
-          primaryColor: Colors.blueAccent,
-        ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text("BMI Calculator"),
-          ),
-          body: Datashowing(data),
-        )));
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("BMI Calculator"),
+      ),
+      body: Datashowing(data),
+    );
   }
 }
 
@@ -73,7 +68,6 @@ class ResultActivityState extends State<Datashowing> {
         ),
         child: (Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               margin: const EdgeInsets.only(bottom: 10.0),
@@ -107,7 +101,23 @@ class ResultActivityState extends State<Datashowing> {
                       ),
                 ),
               ),
-            )
+            ),
+            const Divider(),
+            Container(
+              padding: const EdgeInsets.all(10.0),
+              margin: const EdgeInsets.only(bottom: 10.0),
+              child: Center(
+                child: Text(
+                  """Body mass index (BMI) is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square of the body height, and is expressed in units of kg/ m2, resulting from mass in kilograms and height in metres.
+The calculations within this app do not contain medical advice. 
+
+The contents of this app, such as text, graphics, images and other material are intended for informational and educational purposes only and not for the purpose of rendering medical advice. The contents of this app are not intended to substitute for professional medical advice, diagnosis or treatment. Although we take efforts to keep the medical information on our app updated, we cannot guarantee that the information on our app reflects the most up-to- date research. Please consult your physician for personalized medical advice.""",
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: AppColors.whiteColor,
+                      ),
+                ),
+              ),
+            ),
           ],
         )),
       ),

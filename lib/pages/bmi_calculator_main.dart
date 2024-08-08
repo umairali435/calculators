@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mathtool/constants/colors.dart';
 import 'package:mathtool/pages/bmi_calculator_result.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BMICalculatorMainPage extends StatefulWidget {
   const BMICalculatorMainPage({super.key});
@@ -18,6 +19,14 @@ class _BMICalculatorMainPageState extends State<BMICalculatorMainPage> {
   double _currentvalueweight = 3;
   double _currentvalueage = 1;
 
+  void launchURL(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +36,14 @@ class _BMICalculatorMainPageState extends State<BMICalculatorMainPage> {
           style: TextStyle(color: AppColors.whiteColor),
         ),
         iconTheme: const IconThemeData(color: AppColors.whiteColor),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.info),
+            onPressed: () {
+              launchURL("https://en.wikipedia.org/wiki/Body_mass_index");
+            },
+          ),
+        ],
         backgroundColor: AppColors.primaryColor,
       ),
       body: (Form(

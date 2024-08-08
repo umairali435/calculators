@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mathtool/constants/colors.dart';
 import 'package:mathtool/pages/bmi_calculator_main.dart';
+import 'package:mathtool/pages/drawer.dart';
 import 'package:mathtool/pages/math_calculator.dart';
 import 'package:mathtool/pages/percentage_calculator.dart';
 
@@ -12,6 +13,7 @@ class MultipleCalculators extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
+        iconTheme: const IconThemeData(color: AppColors.whiteColor),
         title: const Text(
           "Calculator Tools",
           style: TextStyle(
@@ -19,6 +21,7 @@ class MultipleCalculators extends StatelessWidget {
           ),
         ),
       ),
+      drawer: const CustomDrawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
